@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.controller.CourseController;
 import org.example.controller.QualificationController;
+import org.example.controller.RegistrationController;
 import org.example.controller.StudenController;
 import org.example.persistence.ConnectionDB;
 
@@ -14,6 +15,7 @@ public class Main {
         StudenController studenController = new StudenController();
         CourseController courseController = new CourseController();
         QualificationController qualificationController = new QualificationController();
+        RegistrationController registrationController = new RegistrationController();
 
         Boolean runMenu = true;
         while(runMenu){
@@ -84,14 +86,16 @@ public class Main {
                             "2.Eliminar inscripcion\n"+
                             "3.Salir");
                     if(optionMenuRegistration.equals("1")){
-                        break;
+                        registrationController.createRegistration();
+                    } else if (optionMenuRegistration.equals("2")) {
+                        registrationController.deleteRegistration();
                     }
+                    break;
                 case "5":
                     runMenu = false;
                     break;
                 default:
                     JOptionPane.showMessageDialog(null,"Ingrese una opcion valida");
-
             }
 
         }
